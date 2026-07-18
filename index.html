@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="theme-color" content="#0d1117" />
+    <title>⚔️ Web3 Idle Raid &amp; Slash</title>
+    <link rel="stylesheet" href="./src/css/styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- Top status bar -->
+      <header class="topbar">
+        <div class="topbar__brand">⚔️ Idle Raid</div>
+        <div class="topbar__stats">
+          <span class="chip chip--gold" title="Gold">🪙 <b id="stat-gold">0</b></span>
+          <span class="chip chip--sats" title="Satoshis">⚡ <b id="stat-sats">0</b> sats</span>
+        </div>
+        <button id="btn-wallet" class="btn btn--wallet">Connect Wallet</button>
+      </header>
+
+      <!-- Combat arena -->
+      <main class="arena">
+        <div class="arena__stage">
+          <span id="stage-label">Stage 1</span>
+          <span id="stage-kind" class="badge">Dungeon</span>
+        </div>
+
+        <div class="arena__enemy" id="enemy">
+          <div class="enemy__sprite" id="enemy-sprite">👹</div>
+          <div class="enemy__healthbar">
+            <div class="enemy__healthfill" id="enemy-healthfill"></div>
+            <span class="enemy__healthtext" id="enemy-healthtext">100 / 100</span>
+          </div>
+          <div class="enemy__name" id="enemy-name">Goblin Grunt</div>
+        </div>
+
+        <div class="arena__hero">
+          <div class="hero__sprite">🦸</div>
+          <div class="hero__dps">
+            <span>DPS</span>
+            <b id="hero-dps">0</b>
+          </div>
+        </div>
+
+        <div id="damage-layer" class="damage-layer"></div>
+      </main>
+
+      <!-- Active raid -->
+      <section class="raid card">
+        <div class="raid__header">
+          <h2>🔥 Active Boss Raid</h2>
+          <span class="chip chip--energy">⚡ Raid Energy: <b id="stat-energy">0</b>/<b id="stat-energy-max">0</b></span>
+        </div>
+        <p class="raid__desc">Spend Raid Energy to slay a boss and earn Satoshis.</p>
+        <button id="btn-raid" class="btn btn--primary">Raid Boss (10 ⚡)</button>
+        <div id="raid-result" class="raid__result"></div>
+      </section>
+
+      <!-- Upgrades -->
+      <section class="upgrades card">
+        <h2>🛠️ Upgrades</h2>
+        <div class="upgrade-grid">
+          <button id="btn-level" class="btn btn--upgrade">
+            <span class="upgrade__title">Level Up Hero</span>
+            <span class="upgrade__sub">Lv <b id="hero-level">1</b> → boosts damage</span>
+            <span class="upgrade__cost">🪙 <b id="cost-level">0</b></span>
+          </button>
+          <button id="btn-weapon" class="btn btn--upgrade">
+            <span class="upgrade__title">Upgrade Weapon</span>
+            <span class="upgrade__sub">×<b id="hero-weapon">1.0</b> multiplier</span>
+            <span class="upgrade__cost">🪙 <b id="cost-weapon">0</b></span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Daily + Ads -->
+      <section class="engage card">
+        <div class="engage__col">
+          <h2>📅 Daily Sign-In</h2>
+          <p>Streak: <b id="daily-streak">0</b> day(s)</p>
+          <button id="btn-daily" class="btn btn--secondary">Claim Reward</button>
+          <div id="daily-result" class="engage__result"></div>
+        </div>
+        <div class="engage__col">
+          <h2>📺 Ad Boosts</h2>
+          <p>Ads today: <b id="ads-watched">0</b>/<b id="ads-max">5</b></p>
+          <button id="btn-ad" class="btn btn--secondary">Watch Ad → 2× Speed</button>
+          <div id="ad-status" class="engage__result"></div>
+        </div>
+      </section>
+
+      <!-- Withdraw -->
+      <section class="withdraw card">
+        <h2>💸 Withdraw</h2>
+        <p class="withdraw__balance">Balance: <b id="withdraw-balance">0</b> sats</p>
+        <label class="withdraw__label">
+          Lightning Address or Wallet
+          <input id="withdraw-addr" type="text" placeholder="you@speed.app" />
+        </label>
+        <p class="withdraw__charity">
+          ❤️ A separate <b>5%</b> charity match to Make-A-Wish is added on top of your payout.
+        </p>
+        <button id="btn-withdraw" class="btn btn--primary">Withdraw Sats</button>
+        <div id="withdraw-result" class="withdraw__result"></div>
+      </section>
+
+      <footer class="footer">
+        <button id="btn-reset" class="btn btn--ghost">Reset Progress</button>
+        <span class="footer__note">Prototype — wallet &amp; payouts are simulated.</span>
+      </footer>
+    </div>
+
+    <script type="module" src="./src/js/main.js"></script>
+  </body>
+</html>

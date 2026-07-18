@@ -42,4 +42,32 @@ The integration of social impact serves as a core marketing pillar and driver fo
 * **Target Foundations:** Verified 501(c)(3) entities including the Make-A-Wish Foundation.
 * **Implementation:** Automated routing via smart contracts or programmatic Lightning network payouts directly to pre-configured non-profit multi-sig addresses.
 
+---
+
+## 🕹️ 5. Playable Prototype (HTML5)
+
+A dependency-free, mobile-first HTML5 build of the core game loop lives in this repo. It implements the exact progression math from `Game_Mechanics.md` and the withdrawal/charity flow from `Payout_Architecture.md`.
+
+**Implemented features**
+* Idle "tick" combat with the documented damage `D = (Base·L)^1.15 · M` and enemy HP `100·1.22^S` formulas.
+* Stage progression with dungeon monsters and bosses every 10th stage.
+* Offline earnings catch-up (capped at 12h) on reload.
+* Hero level-ups and weapon-multiplier upgrades spent from gold.
+* Active Boss Raids that spend Raid Energy to earn Satoshis.
+* Daily sign-in rewards with streak tracking.
+* Ad-boosts granting temporary 2× slash speed (daily-limited).
+* Wallet connect + Withdraw screen showing the automated **5% charity match** to Make-A-Wish.
+* Progress persisted to `localStorage`.
+
+> ⚠️ Wallet connection and payouts are **simulated stubs** (`src/js/wallet.js`, `src/js/payout.js`) that mirror the WalletConnect/Web3Modal and Speed/LNbits interfaces. Wire the real SDKs into those modules for production — no other code needs to change.
+
+**Run it**
+```bash
+npm install       # optional, only needed for lint
+npm start         # serves at http://localhost:8080
+npm test          # progression + payout unit tests
+npm run lint
+```
+Or simply open `index.html` in a browser.
+
 

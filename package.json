@@ -1,0 +1,17 @@
+{
+  "name": "web3-idle-raid-game",
+  "version": "0.1.0",
+  "description": "Web3 Idle Raid & Slash P2E game — playable HTML5 prototype.",
+  "type": "module",
+  "scripts": {
+    "start": "npx --yes http-server . -p 8080 -c-1",
+    "test": "node --test",
+    "lint": "eslint ."
+  },
+  "keywords": ["idle", "game", "web3", "p2e", "phaser", "bitcoin"],
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "eslint": "^9.13.0"
+  }
+}
